@@ -25,7 +25,7 @@ const (
 	defaultPackageSuffix       = "connect"
 	packageSuffixFlagName      = "package_suffix"
 
-	usage = "usage"
+	usage = "TODO"
 )
 
 func main() {
