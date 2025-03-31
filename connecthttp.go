@@ -1,7 +1,5 @@
 package connecthttp
 
-import "net/http"
-
 type Request[T any] struct {
 	Msg *T
 }
@@ -12,6 +10,12 @@ func (r *Request[_]) Any() any {
 
 type AnyRequest interface {
 	Any() any
+}
+
+func NewRequest[T any](message *T) *Request[T] {
+	return &Request[T]{
+		Msg: message,
+	}
 }
 
 type Response[T any] struct {
@@ -26,21 +30,8 @@ type AnyResponse interface {
 	Any() any
 }
 
-type HandlerConn interface {
-	Receive(any) error
-	Send(any) error
-}
-
-type handlerConn struct {
-	r      *http.Request
-	w      http.ResponseWriter
-	config *handlerConfig
-}
-
-func (h *handlerConn) Receive(a any) error {
-	return h.config.drc(h.r, a)
-}
-
-func (h *handlerConn) Send(a any) error {
-	return h.config.enc(h.w, h.r, a)
+func NewResponse[T any](message *T) *Response[T] {
+	return &Response[T]{
+		Msg: message,
+	}
 }
