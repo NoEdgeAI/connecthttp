@@ -1,9 +1,9 @@
 package connecthttp
 
 type handlerConfig struct {
-	drc DecodeRequestFunc
-	enc EncodeResponseFunc
-	ene EncodeErrorFunc
+	drf DecodeRequestFunc
+	erf EncodeResponseFunc
+	eef EncodeErrorFunc
 }
 
 type HandlerOption func(*handlerConfig)
@@ -19,18 +19,18 @@ func newHandlerConfig(options ...HandlerOption) *handlerConfig {
 
 func WithDecodeRequestFunc(fn DecodeRequestFunc) HandlerOption {
 	return func(c *handlerConfig) {
-		c.drc = fn
+		c.drf = fn
 	}
 }
 
 func WithEncodeResponseFunc(fn EncodeResponseFunc) HandlerOption {
 	return func(c *handlerConfig) {
-		c.enc = fn
+		c.erf = fn
 	}
 }
 
 func WithEncodeErrorFunc(fn EncodeErrorFunc) HandlerOption {
 	return func(c *handlerConfig) {
-		c.ene = fn
+		c.eef = fn
 	}
 }
