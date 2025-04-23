@@ -10,6 +10,7 @@ type Handler struct {
 }
 
 func NewHandler[Req, Res any](
+	_ string,
 	unary func(context.Context, *Request[Req]) (*Response[Res], error),
 	options ...HandlerOption,
 ) *Handler {
