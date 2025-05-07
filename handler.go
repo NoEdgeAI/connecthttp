@@ -40,5 +40,11 @@ func NewHandler[Req, Res any](
 }
 
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	h.impl(w, r)
+	ctx := r.Context()
+	tr := &Transport{
+		request:  r,
+		response: w,
+	}
+	tr.request = r.WithContext(NewTransportContext(ctx, tr))
+	h.impl(w, tr.request)
 }
