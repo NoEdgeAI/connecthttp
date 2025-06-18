@@ -1,4 +1,4 @@
-module github.com/scmtble/connecthttp
+module github.com/NoEdgeAI/connecthttp
 
 go 1.24.1
 
