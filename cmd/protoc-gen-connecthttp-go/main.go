@@ -19,7 +19,7 @@ const (
 	errorsPackage  = protogen.GoImportPath("errors")
 	httpPackage    = protogen.GoImportPath("net/http")
 	stringsPackage = protogen.GoImportPath("strings")
-	connectPackage = protogen.GoImportPath("github.com/scmtble/connecthttp")
+	connectPackage = protogen.GoImportPath("github.com/NoEdgeAI/connecthttp")
 
 	generatedFilenameExtension = ".connecthttp.go"
 	defaultPackageSuffix       = "connect"
